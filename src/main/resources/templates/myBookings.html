@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.com" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>My Bookings</title>
+</head>
+<body>
+<div class="container">
+    <h3>My Bookings</h3>
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Restaurant Name</th>
+                <th>Number of Passes</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tempRestaurant : ${restaurants}">
+            <td th:text="${tempRestaurant.restaurantName}"/>
+            <td th:text="${tempRestaurant.passes}"/>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<p align="center">
+    <a th:href="@{/user/userpage(uid=${userid})}" class="btn btn-primary">Back to ur page</a>
+</p>
+</body>
+</html>

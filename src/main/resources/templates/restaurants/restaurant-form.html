@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Restaurant</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Restaurant Directory</h3>
+        <hr>
+
+        <p class="h4 mb-4">Save Restaurant</p>
+
+        <form action="#" th:action="@{/restaurants/save}" th:object="${restaurant}" method="POST">
+
+            <!-- Add hidden form field to handle update -->
+            <input type="hidden" th:field="*{id}"/>
+
+            <input type="text" th:field="*{restaurantName}"
+                    class="form-control mb-4 col-4" placeholder="Restaurant name">
+
+            <input type="text" th:field="*{rating}"
+                   class="form-control mb-4 col-4" placeholder="Rating">
+
+            <input type="text" th:field="*{email}"
+                   class="form-control mb-4 col-4" placeholder="Email">
+
+            <input type="text" th:field="*{phoneNo}"
+                   class="form-control mb-4 col-4" placeholder="Phone Number">
+
+            <input type="number" th:field="*{totalPasses}"
+                   class="form-control mb-4 col-4" placeholder="Total Passes">
+
+            <input type="text" th:field="*{address}"
+                   class="form-control mb-4 col-4" placeholder="Address">
+
+            <button type="submit" class="btn btn-info col-2">Save</button>
+        </form>
+
+        <hr>
+
+        <a th:href="@{/restaurants/list}">Back to Restaurants List</a>
+    </div>
+</body>

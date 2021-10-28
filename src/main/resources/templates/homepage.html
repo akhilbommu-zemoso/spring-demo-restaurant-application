@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Restaurant Pass Booking Application</title>
+    <style>
+		h2{
+		    text-align:center;
+		}
+	</style>
+</head>
+<body>
+    <h2>Restaurant Pass Booking Application</h2>
+    <div class="row">
+        <div class="col">
+            <form action="#" th:action="@{/user/signup-form}">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Sign in as User</button>
+                </div>
+            </form>
+        </div>
+        <div class="col">
+            <form action="#" th:action="@{/restaurants/list}">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Sign in as Admin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

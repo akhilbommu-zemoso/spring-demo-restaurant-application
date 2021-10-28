@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>User Home Page</title>
+</head>
+<body>
+<div class="container">
+    <h3>List of Restaurants</h3>
+    <hr>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Restaurant Name</th>
+            <th>Rating</th>
+            <th>Email</th>
+            <th>Phone No.</th>
+            <th>Available Passes</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempRestaurant : ${restaurants}">
+            <td th:text="${tempRestaurant.restaurantName}"/>
+            <td th:text="${tempRestaurant.rating}"/>
+            <td th:text="${tempRestaurant.email}"/>
+            <td th:text="${tempRestaurant.phoneNo}"/>
+            <td th:text="${tempRestaurant.availablePasses}"/>
+            <td th:text="${tempRestaurant.address}"/>
+
+            <td>
+                <!-- Add code for book here-->
+                <a th:href="@{/user/bookpasses(rid=${tempRestaurant.id},uid=${user.id})}"
+                   class="btn btn-info btn-sm">
+                    Book
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/user/logout}" class="btn btn-danger btn-sm mb-3">
+        Logout
+    </a>
+
+    <a th:href="@{/user/mybookings(uid=${user.id})}" class="btn btn-info btn-sm mb-3">
+        Show My Bookings
+    </a>
+
+</div>
+</body>
+</html>
